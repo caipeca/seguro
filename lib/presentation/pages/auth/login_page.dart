@@ -12,6 +12,7 @@ class LoginPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return Scaffold(
+      backgroundColor: theme.colorScheme.background,
       body: BlocConsumer<AuthBloc, AuthState>(
         listener: (context, state) {
           if (state is AuthFailure) {
@@ -62,7 +63,9 @@ class LoginPage extends StatelessWidget {
                       Text("Don't have an account?", style: theme.textTheme.bodySmall,),
                       SizedBox(width: 4,),
                       GestureDetector(
-                        onTap: (){},
+                        onTap: (){
+                          Navigator.pushReplacementNamed(context, '/register');
+                        },
                         child: Text('Sign up', style: theme.textTheme.bodySmall?.copyWith(fontWeight: FontWeight.bold),),
                       )
                     ],

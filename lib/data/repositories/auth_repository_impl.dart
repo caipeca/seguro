@@ -1,6 +1,6 @@
 import 'package:seguro/data/datasources/auth_remote_data_source.dart';
 import 'package:seguro/domain/entities/user_entity.dart';
-import 'package:seguro/domain/repositories/auth/auth_repository.dart';
+import 'package:seguro/domain/repositories/auth_repository.dart';
 
 class AuthRepositoryImpl implements AuthRepository {
   final AuthRemoteDataSource remoteDataSource;
@@ -26,9 +26,9 @@ class AuthRepositoryImpl implements AuthRepository {
   }
 
   @override
-  Future<UserEntity> register(String email, String password, String name) {
+  Future<UserEntity> register(String email, String password, String name) async {
     // TODO: implement register
-    throw UnimplementedError();
+    return await remoteDataSource.register(email, password, name);
   }
 
 }

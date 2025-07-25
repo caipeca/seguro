@@ -1,5 +1,5 @@
 import 'package:seguro/domain/entities/user_entity.dart';
-import 'package:seguro/domain/repositories/auth/auth_repository.dart';
+import 'package:seguro/domain/repositories/auth_repository.dart';
 
 class RegisterUser{
   final AuthRepository repository;
