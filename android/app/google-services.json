@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "553011543110",
+    "project_id": "seguro-5a0c8",
+    "storage_bucket": "seguro-5a0c8.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:553011543110:android:3a25b2296e5e2f0d641e47",
+        "android_client_info": {
+          "package_name": "org.soft.seguro"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyATaFkO6F6j9Cd0HGhWdOGAGZh0s3TMrTw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
