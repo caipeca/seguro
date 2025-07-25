@@ -4,6 +4,7 @@ import 'package:seguro/core/themes/theme.dart';
 import 'package:seguro/presentation/pages/auth/login_page.dart';
 import 'package:seguro/presentation/pages/auth/register_page.dart';
 import 'package:seguro/presentation/pages/dashboard/home_page.dart';
+import 'package:seguro/presentation/pages/policy/add_policy_page.dart';
 
 class App extends StatelessWidget {
   const App({super.key});
@@ -20,6 +21,7 @@ class App extends StatelessWidget {
         '/login': (context) => LoginPage(),
         '/register': (context) => RegisterPage(),
         '/home': (context) => HomePage(),
+        '/add-policy': (context) => AddPolicyPage(),
       },
     );
   }

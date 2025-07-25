@@ -1,12 +1,17 @@
-class InsurancePolicyEntity{
-  final String id;
+class InsurancePolicyEntity {
+  final String? id;
   final String type; // 'auto', 'health', 'home', etc.
   final String insurerName;
   final DateTime expiryDate;
   final String userId;
 
   InsurancePolicyEntity(
-      {required this.id, required this.type, required this.insurerName, required this.expiryDate, required this.userId});
+     {this.id,
+    required this.type,
+    required this.insurerName,
+    required this.expiryDate,
+    required this.userId,
+  });
 
   Map<String, dynamic> toMap() {
     return {

@@ -1,4 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:seguro/domain/entities/user_entity.dart';
 import 'package:seguro/domain/repositories/auth_repository.dart';
 import 'package:seguro/domain/usecases/auth/login_user.dart';
 
@@ -23,7 +24,12 @@ class RegisterRequested extends AuthEvent {
 abstract class AuthState{}
 class AuthInitial extends AuthState{}
 class AuthLoading extends AuthState{}
-class AuthSuccess extends AuthState{}
+class AuthSuccess extends AuthState{
+  final UserEntity user;
+
+  AuthSuccess(this.user);
+
+}
 class AuthFailure extends AuthState{
   final String error;
 
@@ -42,8 +48,8 @@ class AuthBloc extends Bloc<AuthEvent, AuthState>{
   void _onLoginRequested(LoginRequested event, Emitter<AuthState> emit) async {
     emit(AuthLoading());
     try {
-      await loginUser(event.email, event.password);
-      emit(AuthSuccess());
+      final user = await loginUser(event.email, event.password);
+      emit(AuthSuccess(user));
     }catch (e) {
       emit(AuthFailure(e.toString()));
     }
@@ -52,8 +58,8 @@ class AuthBloc extends Bloc<AuthEvent, AuthState>{
   void _onRegisterRequested(RegisterRequested event, Emitter<AuthState> emit) async {
     emit(AuthLoading());
     try{
-      await registerUser(event.email, event.password, event.name);
-      emit(AuthSuccess());
+      final user = await registerUser(event.email, event.password, event.name);
+      emit(AuthSuccess(user));
     } catch (e) {
       emit(AuthFailure(e.toString()));
     }

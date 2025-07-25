@@ -6,6 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:seguro/data/datasources/policy_data_source.dart';
 import 'package:seguro/data/repositories/policy_repository_impl.dart';
 import 'package:seguro/domain/repositories/policy_repository.dart';
+import 'package:seguro/domain/usecases/policy/add_policy.dart';
 import 'package:seguro/domain/usecases/policy/get_policies.dart';
 import 'package:seguro/presentation/bloc/auth_bloc.dart';
 import 'package:seguro/presentation/bloc/policy_bloc.dart';
@@ -48,6 +49,7 @@ void main() async {
             create:
                 (context) => PolicyBloc(
                   getPolicies: GetPolicies(context.read<PolicyRepository>()),
+                  addPolicy: AddPolicy(context.read<PolicyRepository>())
                 ),
           ),
         ],
